@@ -8,3 +8,4 @@ out
 tmp
 .nyc_output
 coverage
+cache
