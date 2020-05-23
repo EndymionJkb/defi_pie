@@ -2,13 +2,49 @@
   "contractName": "ISyntheticBuilder",
   "abi": [
     {
-      "inputs": [],
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_client",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_expiringMultiPartyCreator",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_collateral",
+          "type": "address"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "_priceFeedIdentifier",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "string",
+          "name": "_syntheticName",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "_syntheticSymbol",
+          "type": "string"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_expirationTimestamp",
+          "type": "uint256"
+        }
+      ],
       "name": "build",
       "outputs": [
         {
-          "internalType": "bool",
+          "internalType": "address",
           "name": "",
-          "type": "bool"
+          "type": "address"
         }
       ],
       "stateMutability": "nonpayable",

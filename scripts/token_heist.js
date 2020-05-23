@@ -9,16 +9,23 @@ const USDT_TOKEN_CONTRACT = "0xdac17f958d2ee523a2206206994597c13d831ec7";
 const DAI_TOKEN_CONTRACT = "0x6b175474e89094c44da98b954eedeac495271d0f";
 const PBTC_TOKEN_CONTRACT = "0x5228a22e72ccc52d415ecfd199f99d0665e7733b";
 const CRO_TOKEN_CONTRACT = "0xa0b73e1ff0b80914ab6fe0444e65848c4c34450b";
-//const PAXG_TOKEN_CONTRACT = "0x45804880De22913dAFE09f4980848ECE6EcbAf78";
+const PAXG_TOKEN_CONTRACT = "0x45804880De22913dAFE09f4980848ECE6EcbAf78";
 
 const USDC_HOLDER_ADDRESS = "0x8cee3eeab46774c1CDe4F6368E3ae68BcCd760Bf";
 const USDT_HOLDER_ADDRESS = "0xf946010272F2f97EB5B4De57D4445E378c4BC547";
 const DAI_HOLDER_ADDRESS = "0xe17dd26d980af5a072b6c485f5e37f9f287bebf5";
 const PBTC_HOLDER_ADDRESS = "0x70654f55d6755358e6c4b75e367a08156aa40646";
 const CRO_HOLDER_ADDRESS = "0xc97a4ed29f03fd549c4ae79086673523122d2bc5";
-//const PAXG_HOLDER_ADDRESS = "0x711486216Eb92c00b1E09DEE88623898a9258F6a";
+const PAXG_HOLDER_ADDRESS = "0x711486216Eb92c00b1E09DEE88623898a9258F6a";
 
 async function main() {
+    /*const pbtc = new pBTC({
+        ethProvider: window.web3.currentProvider,
+        btcNetwork: 'bitcoin'
+      })
+    const depositAddress = await pbtc.getDepositAddress()
+    console.log("pBTC deposit address " + depositAddress);*/
+    
     console.log("Transferring 2000 USDC")
     await transfer_token(USDC_TOKEN_CONTRACT, 6, '2000', USDC_HOLDER_ADDRESS);
     console.log("Transferring 3000 DAI")
@@ -29,6 +36,8 @@ async function main() {
     await transfer_token(CRO_TOKEN_CONTRACT, 8, '500', CRO_HOLDER_ADDRESS);
     console.log("Transferring 3000 USDT")
     await transfer_token(USDT_TOKEN_CONTRACT, 6, '3000', USDT_HOLDER_ADDRESS);
+    //console.log("Transferring 2 PAXG")
+    //await transfer_token(PAXG_TOKEN_CONTRACT, 18, '2', PAXG_HOLDER_ADDRESS);
 
     // transfer ETH
     const [sender] = await ethers.getSigners();

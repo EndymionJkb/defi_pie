@@ -1,4 +1,5 @@
 pragma solidity ^0.6.6;
+pragma experimental ABIEncoderV2;
 
 // Import section
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
@@ -6,10 +7,21 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/utils/Pausable.sol";
 import "@openzeppelin/contracts/math/SafeMath.sol";
 import "@nomiclabs/buidler/console.sol";
+import "../uma/common/FixedPoint.sol";
 
 // Interface declarations
 interface ISyntheticBuilder {
-  function build() external returns (bool);
+  function build(
+    address _client,
+    address _expiringMultiPartyCreator,
+    address _collateral,
+    bytes32 _priceFeedIdentifier,
+    string calldata _syntheticName,
+    string calldata _syntheticSymbol,
+    uint256 _expirationTimestamp
+)
+    external
+    returns (address);
 }
 
 interface ITransformationEngine {
